@@ -1,0 +1,23 @@
+class Solution {
+    public int firstUniqChar(String s) {
+        
+        for(int i=0;i<s.length();i++){
+            char currentChar = s.charAt(i);
+            boolean foundDuplicate = false;
+            
+            for(int j=0; j<s.length();j++){
+                if(i!=j && (currentChar == s.charAt(j)) ){
+                    foundDuplicate = true;
+                    break;
+                }    
+            }
+            if(foundDuplicate != true){
+                 System.out.println(currentChar);
+                 return i;
+            }    
+        }
+        return -1;
+        
+    }     
+    
+}
