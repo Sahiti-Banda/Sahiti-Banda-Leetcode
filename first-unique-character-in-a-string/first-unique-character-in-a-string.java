@@ -1,20 +1,16 @@
 class Solution {
     public int firstUniqChar(String s) {
         
+        int[] count = new int[26];
+        
         for(int i=0;i<s.length();i++){
-            char currentChar = s.charAt(i);
-            boolean foundDuplicate = false;
-            
-            for(int j=0; j<s.length();j++){
-                if(i!=j && (currentChar == s.charAt(j)) ){
-                    foundDuplicate = true;
-                    break;
-                }    
+            count[s.charAt(i) -'a']++;
+         }    
+           
+        for(int i=0; i<s.length(); i++){
+            if(count[s.charAt(i) -'a'] == 1){
+                return i;
             }
-            if(foundDuplicate != true){
-                 System.out.println(currentChar);
-                 return i;
-            }    
         }
         return -1;
         
